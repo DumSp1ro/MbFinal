@@ -1,0 +1,45 @@
+﻿<Page x:Class="Imperia.pages.register"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Imperia.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="register">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Background="Silver">
+            <StackPanel Width="200" Height="Auto">
+
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10">
+                    <TextBlock FontSize="18">Регистрация</TextBlock>
+                </StackPanel>
+
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Label Width="52" Content="Имя:"/>
+                    <TextBox Width="90" Height="20" Text="{Binding Path=name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </StackPanel>
+
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Label Width="52" Content="Логин:"/>
+                    <TextBox Width="90" Height="20" Text="{Binding Path=login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Label Width="52">Пароль:</Label>
+                    <TextBox Width="90" Height="20" Text="{Binding Path=password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 10 0 0">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                        <Button Width="auto" Click="Registraciya">Создать аккаунт</Button>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Button Click="Foto" Width="auto">Выбрать фото</Button>
+                        <Image Width="100" Height="100" Name="PreviewImage" Source="{Binding Path=photo}"></Image>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

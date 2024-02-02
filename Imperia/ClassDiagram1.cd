@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Imperia.App">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Imperia.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABADAAAAAAIAEAAAAAABAAAAAgAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Imperia.classes.connect">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>classes\connect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Imperia.classes.currentuser">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>classes\currentuser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Imperia.classes.manager">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>classes\manager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Imperia.models.imp">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQCAACBAIAAAAAAAAAAAAAAEAAAAAAAIiAAEIAACAA=</HashCode>
+      <FileName>models\bm.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Imperia.models.LoginHistory">
+    <Position X="4" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAgAAAAAAAAAAAAAAAEAAgAAAAAAAgA=</HashCode>
+      <FileName>models\LoginHistory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Imperia.models.merch">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAIMACAAAAIIAAAAAAAAAAEAAAAAAgAAIIAAgA=</HashCode>
+      <FileName>models\merch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Imperia.models.orders">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBQAAACAAAAAEAAAAAAIAAQAIAAQCAEAAAAAAIIAAgA=</HashCode>
+      <FileName>models\orders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Imperia.models.point">
+    <Position X="2.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>models\point.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Imperia.models.sostav">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAABIAAEAAAABAAAAAAAAAAAAACAAAAAAAIACgA=</HashCode>
+      <FileName>models\sostav.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Imperia.models.status">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>models\status.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Imperia.models.sysdiagrams">
+    <Position X="4" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAIAAAAAAAAAAAAAAAQAAAFAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>models\sysdiagrams.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Imperia.models.type_user">
+    <Position X="4" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>models\type_user.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Imperia.models.users">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABIAAAAAAAAAAAAAAAAAAECAAAIgAAAgAAEgA=</HashCode>
+      <FileName>models\users.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Imperia.pages.authorize" BaseTypeListCollapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BYQAAEYAAAAAIAAAABAAAAAABARAABAAAAQAAgAAAAI=</HashCode>
+      <FileName>pages\authorize.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Imperia.pages.CodePage" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAgAAACAAABAAAAAAAAAEwAAAAAQAAAAAAACAAAAA=</HashCode>
+      <FileName>pages\CodePage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Imperia.pages.EditMerch" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAACAAAACAIAAAAAAAAAAAAAAAAAAQAAQAAA=</HashCode>
+      <FileName>pages\EditMerch.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Imperia.pages.EditOrders" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>pages\EditOrders.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Imperia.pages.HistoryPage" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQUAAgAAAAAACAAABBAAAAQAA=</HashCode>
+      <FileName>pages\HistoryPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Imperia.pages.merches" BaseTypeListCollapsed="true">
+    <Position X="20" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="Imperia.pages.merches.OrderItem">
+        <TypeIdentifier>
+          <NewMemberFileName>pages\merches.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAQAAEAAkAAAAAgAEAAAAAEAAAgBAAAAAAAA=</HashCode>
+      <FileName>pages\merches.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Imperia.pages.OrdersPage" BaseTypeListCollapsed="true">
+    <Position X="13" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAQAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>pages\OrdersPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Imperia.pages.register" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACCAAAAAIABAABAAAAAAAAAAAAAQAAQABA=</HashCode>
+      <FileName>pages\register.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Imperia.pages.RootMerch" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAMAAAAAAQAAAgAAAAAAAAAAAAEAAAAGAAACAAAAAAA=</HashCode>
+      <FileName>pages\RootMerch.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Imperia.Properties.Resources">
+    <Position X="20" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Imperia.Properties.Settings">
+    <Position X="14.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Imperia.windows.OneOrder" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAQQEAAgAAAAAAAAIAAAEAAIAAAAABAAAAIAAAAAA=</HashCode>
+      <FileName>windows\OneOrder.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Imperia.windows.OrdersWindow" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABACAAAAAQAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>windows\OrdersWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Imperia.windows.PodskWindow" BaseTypeListCollapsed="true">
+    <Position X="13" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>windows\PodskWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

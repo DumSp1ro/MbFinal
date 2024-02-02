@@ -1,0 +1,59 @@
+﻿<Window x:Class="Imperia.windows.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Imperia.windows"
+        mc:Ignorable="d"
+        Title="RegisterWindow" MinHeight="600" MaxHeight="600" MinWidth="326" MaxWidth="326" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Style="{StaticResource CustomGradient}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="375"/>
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
+        <Grid Name="ToolBar" Background="Transparent" Grid.Row="0" MouseDown="ToolBar_MouseDown">
+            <Polygon Fill="White" Opacity="0.5"
+             Points="26,0,
+             100,7,
+             225,7,
+             300,0"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Image Name="MinBtn" Style="{StaticResource MinButtonStyle}" MouseDown="MinBtn_MouseDown"/>
+                <Image Name="CloseBtn" Style="{StaticResource CloseButtonStyle}" MouseDown="CloseBtn_MouseDown"/>
+            </StackPanel>
+        </Grid>
+        <Grid Name="LogoContainer" Background="Transparent"  Grid.Row="1" MouseDown="LogoContainer_MouseDown">
+            <Image Source="/res/logoid.png" />
+        </Grid>
+
+        <Grid Grid.Row="2" x:Name="RegisterGrid">
+            <Grid x:Name="NameGrid">
+                <TextBox x:Name="NameLogin" Grid.Row="2" Style="{StaticResource tb}" Margin="25,40,25,0" VerticalAlignment="Top" Text="{Binding Path=name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBlock IsHitTestVisible="False" FontSize="14" Text="Имя" Margin="37,47,245,0" VerticalAlignment="Top" Style="{StaticResource NameTextBlock}"/>
+            </Grid>
+            <Grid x:Name="LoginGrid">
+                <TextBox x:Name="TxbLogin" Grid.Row="2" Style="{StaticResource tb}" Margin="25,85,25,0" VerticalAlignment="Top" Text="{Binding Path=login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBlock IsHitTestVisible="False" FontSize="14" Text="Логин"  Margin="37,93,240,0" VerticalAlignment="Top" Style="{StaticResource LoginTextBlock}"/>
+            </Grid>
+            <Grid x:Name="PassGrid">
+                <TextBox x:Name="TxbPassword" Style="{StaticResource tb}" Margin="25,130,25,0" VerticalAlignment="Top" Text="{Binding Path=password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Name="Watermark" IsHitTestVisible="False" FontSize="14" Text="Пароль" Margin="37,139,240,0" Style="{StaticResource PassTextBlock}" VerticalAlignment="Top" Foreground="Black"></TextBlock>
+            </Grid>
+            <Grid x:Name="BntGrid" 
+          Margin="33,165,33,160">
+                <Button Name="BtnInLogin" Content="Создать аккаунт" FontSize="16" Height="35" Width="220" Click="Registraciya" Style="{StaticResource ButtonAuto}"/>
+            </Grid>
+            <Grid x:Name="FotoGrid" 
+                  Margin="0,220,0,0">
+                <Image Width="100" Height="100" Margin="0, 20, 0, 0" Name="PreviewImage" Source="/res/foto.png"></Image>
+                <Button Style="{StaticResource ButtonAuto}" VerticalAlignment="Top" Width="100" Height="15" Click="Foto" >Выбрать фото</Button>
+            </Grid>
+        </Grid>
+
+
+        <TextBlock Grid.Row="3" Text="Авторизация" Style="{StaticResource HoverColorTextBlockStyle}" 
+                   MouseDown="Authorize_MouseDown"/>
+    </Grid>
+</Window>
