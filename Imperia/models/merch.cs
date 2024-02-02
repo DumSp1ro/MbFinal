@@ -19,38 +19,7 @@ namespace Imperia.models
         {
             this.sostav = new HashSet<sostav>();
         }
-
-        public string DiscountText
-        {
-            get
-            {
-                return Convert.ToBoolean(discount) ? "Есть скидка" : "Скидка отсутствует";
-            }
-        }
-        public bool TextColor
-        {
-            get
-            {
-                if (Convert.ToDouble(discount) != 0) return true;
-                else return false;
-            }
-        }
-        public string Arrow
-        {
-            get
-            {
-                if (TextColor) return "Strikethrough";
-                else return "None";
-            }
-        }
-        public string newcost
-        {
-            get
-            {
-                if (TextColor) return Convert.ToString((Convert.ToDouble(price)) - Convert.ToDouble(price) * Convert.ToDouble(discount) / 100); else return "";
-            }
-        }
-
+    
         public int id { get; set; }
         public string photo { get; set; }
         public string name { get; set; }

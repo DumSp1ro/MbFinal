@@ -164,22 +164,19 @@ namespace Imperia.windows
 
         private void Foto(object sender, RoutedEventArgs e)
         {
-            string source = Environment.CurrentDirectory;
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.png)|*.jpg; *.jpeg; *.png|All Files (*.*)|*.*";
             if (openFileDialog.ShowDialog() == true)
             {
-                flag = true;
                 string selectedImagePath = openFileDialog.FileName;
-                string destinationPath = System.IO.Path.Combine(source, "res", System.IO.Path.GetFileName(selectedImagePath));
-                System.IO.Directory.CreateDirectory(System.IO.Path.Combine(source, "res"));
-                System.IO.File.Copy(selectedImagePath, destinationPath, true);
-                if (System.IO.File.Exists(destinationPath))
+                // Проверка на null перед установкой изображения
+                if (!string.IsNullOrEmpty(selectedImagePath))
                 {
-                    // Замена заглушки фотографии на выбранное изображение
-                    PreviewImage.Source = new BitmapImage(new Uri(destinationPath));
+                    // Отображаем выбранное изображение в предварительном просмотре
+                    PreviewImage.Source = new BitmapImage(new Uri(selectedImagePath));
                     PreviewImage.Visibility = Visibility.Visible; // Показываем изображение
-                    currentusers.photo = $"/res/{System.IO.Path.GetFileName(destinationPath)}";
+                                                                  // Сохраняем абсолютный путь к выбранному изображению
+                    currentusers.photo = selectedImagePath;
                 }
             }
         }

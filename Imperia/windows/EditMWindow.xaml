@@ -60,7 +60,7 @@
             <Grid x:Name="FotoGrid" 
           Margin="0,280,0,0">
                 <Image Width="100" Height="100" VerticalAlignment="Top" Name="PreviewImage" Source="{Binding photo}"></Image>
-                <Button Style="{StaticResource ButtonAuto}" VerticalAlignment="Bottom" Width="100" Height="15" Click="Foto">Выбрать фото</Button>
+                <Button Style="{StaticResource ButtonAuto}" VerticalAlignment="Bottom" Width="100" Height="15" Click="ChoosePhoto">Выбрать фото</Button>
             </Grid>
         </Grid>
     </Grid>
