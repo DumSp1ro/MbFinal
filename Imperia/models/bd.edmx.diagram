@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="274fbf3a1b794d6e846bbda40bdd4105" Name="Diagram1">
         <EntityTypeShape EntityType="ImperiaDModel.LoginHistory" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ImperiaDModel.merch" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ImperiaDModel.orders" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ImperiaDModel.point" Width="1.5" PointX="6" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="ImperiaDModel.sostav" Width="1.5" PointX="10.5" PointY="4.625" IsExpanded="true" />
@@ -15,12 +14,13 @@
         <EntityTypeShape EntityType="ImperiaDModel.type_user" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ImperiaDModel.users" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
         <AssociationConnector Association="ImperiaDModel.FK_LoginHistory_users" ManuallyRouted="false" />
-        <AssociationConnector Association="ImperiaDModel.FK_sostav_merch" ManuallyRouted="false" />
         <AssociationConnector Association="ImperiaDModel.FK_orders_point" ManuallyRouted="false" />
         <AssociationConnector Association="ImperiaDModel.FK_orders_status" ManuallyRouted="false" />
         <AssociationConnector Association="ImperiaDModel.FK_orders_users" ManuallyRouted="false" />
         <AssociationConnector Association="ImperiaDModel.FK_sostav_orders" ManuallyRouted="false" />
         <AssociationConnector Association="ImperiaDModel.FK_users_type_user" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ImperiaDModel.merch" Width="1.5" PointX="0.75" PointY="1" />
+        <AssociationConnector Association="ImperiaDModel.FK_sostav_merch" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

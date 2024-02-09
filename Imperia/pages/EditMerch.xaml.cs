@@ -41,10 +41,10 @@ namespace Imperia.pages
         {
             StringBuilder errors = new StringBuilder();
 
-            string[] propertiesToCheck = { currentmerch.name, currentmerch.description, currentmerch.manufacturer };
+            string[] propertiesToCheck = { currentmerch.name, currentmerch.size, currentmerch.brend };
 
             string discountText = currentmerch.discount?.ToString() ?? string.Empty;
-            string[] propertyNames = { "Укажите название услуги", "Укажите описание", "Укажите производителя" };
+            string[] propertyNames = { "Укажите название услуги", "Укажите размер", "Укажите бренд" };
 
             for (int i = 0; i < propertiesToCheck.Length; i++)
             {

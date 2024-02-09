@@ -23,12 +23,43 @@ namespace Imperia.models
         public int id { get; set; }
         public string photo { get; set; }
         public string name { get; set; }
-        public string description { get; set; }
-        public string manufacturer { get; set; }
+        public string size { get; set; }
+        public string brend { get; set; }
         public int price { get; set; }
         public Nullable<int> discount { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<sostav> sostav { get; set; }
+
+        public string DiscountText
+        {
+            get
+            {
+                return Convert.ToBoolean(discount) ? "Есть скидка" : "Скидка отсутствует";
+            }
+        }
+        public bool TextColor
+        {
+            get
+            {
+                if (Convert.ToDouble(discount) != 0) return true;
+                else return false;
+            }
+        }
+        public string Arrow
+        {
+            get
+            {
+                if (TextColor) return "Strikethrough";
+                else return "None";
+            }
+        }
+        public string newcost
+        {
+            get
+            {
+                if (TextColor) return Convert.ToString((Convert.ToDouble(price)) - Convert.ToDouble(price) * Convert.ToDouble(discount) / 100); else return "";
+            }
+        }
     }
 }

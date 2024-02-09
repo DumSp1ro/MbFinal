@@ -32,11 +32,10 @@ namespace Imperia.pages
             DataContext = user;
             merchCollection = new ObservableCollection<merch>(imp.GetContext().merch.ToList());
             MerchBD.ItemsSource = merchCollection;
+
+            SearchTextBox.TextChanged += SearchTextBox_TextChanged;
+            BrendTextBox.TextChanged += BrendTextBox_TextChanged;
         }
-        //private void Add(object sender, RoutedEventArgs e)
-        //{
-        //    manager.MainFrame.Navigate(new EditMerch(null));
-        //}
 
         private void Add(object sender, RoutedEventArgs e)
         {
@@ -56,10 +55,6 @@ namespace Imperia.pages
             emw.ShowDialog();
         }
 
-        //private void Edit(object sender, RoutedEventArgs e)
-        //{
-        //    manager.MainFrame.Navigate(new EditMerch((sender as Button).DataContext as merch));
-        //}
 
         private void Delete(object sender, RoutedEventArgs e)
         {
@@ -94,10 +89,34 @@ namespace Imperia.pages
         private void RefreshPage()
         {
             merchCollection.Clear();
-            foreach (var merch in imp.GetContext().merch.ToList())
+            var filteredMerch = imp.GetContext().merch.ToList();
+
+            // Фильтрация поиском по названию
+            if (!string.IsNullOrEmpty(SearchTextBox.Text))
+            {
+                filteredMerch = filteredMerch.Where(m => m.name.Contains(SearchTextBox.Text)).ToList();
+            }
+
+            // Фильтрация поиском по бренду
+            if (!string.IsNullOrEmpty(BrendTextBox.Text))
+            {
+                filteredMerch = filteredMerch.Where(m => m.brend.Contains(BrendTextBox.Text)).ToList();
+            }
+
+            foreach (var merch in filteredMerch)
             {
                 merchCollection.Add(merch);
             }
+        }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            RefreshPage();
+        }
+
+        private void BrendTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            RefreshPage();
         }
 
         private void Ref(object sender, RoutedEventArgs e)

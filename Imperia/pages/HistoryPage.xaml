@@ -10,34 +10,47 @@
 
     <Grid Style="{StaticResource CustomGradient}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
-        <WrapPanel Orientation="Vertical" HorizontalAlignment="Center">
+        <WrapPanel Orientation="Vertical" HorizontalAlignment="Center"  Grid.Row="0" VerticalAlignment="Center"
+                   >
             <StackPanel Orientation="Horizontal">
-                <TextBlock Width="175" TextAlignment="Right">Фильтр по имени:</TextBlock>
+                <TextBlock TextAlignment="Right" Foreground="White" FontSize="16">Фильтр по имени:</TextBlock>
                 <TextBox Width="225" Name="NameFilterTextBox" TextChanged="NameFilterTextBox_TextChanged"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Width="175" TextAlignment="Right">Фильтр по логину:</TextBlock>
-                <ComboBox x:Name="LoginFilterComboBox" Width="225" SelectionChanged="LoginFilterComboBox_SelectionChanged"/>
+                <TextBlock TextAlignment="Right" Foreground="White" FontSize="15.6">Фильтр по логину:</TextBlock>
+                <ComboBox x:Name="LoginFilterComboBox" Width="224.95" SelectionChanged="LoginFilterComboBox_SelectionChanged"/>
             </StackPanel>
 
-            <CheckBox x:Name="SuccessCheckBox" Checked="SuccessCheckBox_Checked" Unchecked="SuccessCheckBox_Unchecked" Content="Показывать только успешные входы" HorizontalAlignment="Center"/>
+            <CheckBox x:Name="SuccessCheckBox" Checked="SuccessCheckBox_Checked" Unchecked="SuccessCheckBox_Unchecked" Foreground="White"  Content="Показывать только успешные входы" HorizontalAlignment="Center"/>
 
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Content="Сбросить" Click="ResetFilters" Style="{StaticResource ButtonAuto}"/>
             </StackPanel>
         </WrapPanel>
-        <DataGrid x:Name="LoginHistoryDataGrid" AutoGenerateColumns="False" Grid.Row="1" ItemsSource="{Binding FilteredLoginHistory}">
+        <DataGrid x:Name="LoginHistoryDataGrid" AutoGenerateColumns="False" Grid.Column="0" Grid.Row="1" ItemsSource="{Binding FilteredLoginHistory}" CanUserResizeColumns="False" 
+                  CanUserResizeRows="False" CanUserSortColumns="False">
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.CellStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding id}" />
+                <DataGridTextColumn Header="ID" Binding="{Binding id}"/>
                 <DataGridTextColumn Header="User" Binding="{Binding users.login}" />
                 <DataGridTextColumn Header="Name" Binding="{Binding users.name}" />
                 <DataGridTextColumn Header="LoginDateTime" Binding="{Binding LoginDateTime}" />
-                <DataGridTextColumn Header="TypeVxod" Binding="{Binding TypeVxod}" />
+                <DataGridTemplateColumn Header="TypeVxod">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding LoginStatusImage}" Width="16" Height="16" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

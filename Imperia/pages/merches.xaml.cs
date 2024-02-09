@@ -44,7 +44,7 @@ namespace Imperia.pages
             else
             {
                 merch selectedMerch = MerchBD.SelectedItem as merch;
-                MessageBox.Show($"Selected Merch:\nName: {selectedMerch.name}\nManufacturer: {selectedMerch.manufacturer}\nPrice: {selectedMerch.price}", "Merchandise Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Selected Merch:\nName: {selectedMerch.name}\nManufacturer: {selectedMerch.brend}\nPrice: {selectedMerch.price}", "Merchandise Information", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -123,6 +123,32 @@ namespace Imperia.pages
             MerchBD.ItemsSource = itemsForPage;
         }
 
+        private void SearchByName(string searchTerm)
+        {
+            if (string.IsNullOrWhiteSpace(searchTerm))
+            {
+                // Если строка поиска пустая или содержит только пробелы, показываем все товары
+                UpdateMerchCollection();
+            }
+            else
+            {
+                // Приводим к нижнему регистру для регистронезависимого поиска
+                string searchTermLower = searchTerm.ToLower();
+                // Фильтруем товары по имени, содержащему введенную строку
+                var filteredMerch = merchCollection.Where(m => m.name.ToLower().Contains(searchTermLower)).ToList();
+                // Обновляем список отображаемых товаров
+                MerchBD.ItemsSource = filteredMerch;
+            }
+        }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchTerm = SearchTextBox.Text;
+            SearchByName(searchTerm);
+        }
+
+       
+
         public class OrderItem
         {
             public int OrderId { get; set; }
@@ -140,6 +166,30 @@ namespace Imperia.pages
             //public string SelectedPoint { get; set; }
             public ObservableCollection<point> PointCollection { get; set; }
             public point SelectedPoint { get; set; }
+        }
+
+        private void BrendFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchTerm = BrendTextBox.Text;
+            SearchByMan(searchTerm);
+        }
+
+        private void SearchByMan(string searchTerm)
+        {
+            if (string.IsNullOrWhiteSpace(searchTerm))
+            {
+                // Если строка поиска пустая или содержит только пробелы, показываем все товары
+                UpdateMerchCollection();
+            }
+            else
+            {
+                // Приводим к нижнему регистру для регистронезависимого поиска
+                string searchTermLower = searchTerm.ToLower();
+                // Фильтруем товары по имени, содержащему введенную строку
+                var filteredMerch = merchCollection.Where(m => m.brend.ToLower().Contains(searchTermLower)).ToList();
+                // Обновляем список отображаемых товаров
+                MerchBD.ItemsSource = filteredMerch;
+            }
         }
     }
 }

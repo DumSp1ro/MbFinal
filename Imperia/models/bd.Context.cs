@@ -19,7 +19,6 @@ namespace Imperia.models
             : base("name=imp")
         {
         }
-
         private static imp context;
         public static imp GetContext()
         {
@@ -28,13 +27,13 @@ namespace Imperia.models
             return context;
         }
         public static users CurrentUser = null;
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
     
         public virtual DbSet<LoginHistory> LoginHistory { get; set; }
-        public virtual DbSet<merch> merch { get; set; }
         public virtual DbSet<orders> orders { get; set; }
         public virtual DbSet<point> point { get; set; }
         public virtual DbSet<sostav> sostav { get; set; }
@@ -42,5 +41,6 @@ namespace Imperia.models
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<type_user> type_user { get; set; }
         public virtual DbSet<users> users { get; set; }
+        public virtual DbSet<merch> merch { get; set; }
     }
 }

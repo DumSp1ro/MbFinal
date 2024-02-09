@@ -11,7 +11,8 @@ namespace Imperia.models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Windows.Media;
+
     public partial class orders
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -36,5 +37,23 @@ namespace Imperia.models
         public virtual users users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<sostav> sostav { get; set; }
+
+        public Brush StatusBackgroundColor
+        {
+            get
+            {
+                switch (status.id)
+                {
+                    case 1:
+                        return Brushes.LightGreen;
+                    case 2:
+                        return Brushes.LightCoral;
+                    case 3:
+                        return Brushes.LightSkyBlue;
+                    default:
+                        return Brushes.Transparent; // Если статус неизвестен, можно использовать прозрачный цвет
+                }
+            }
+        }
     }
 }

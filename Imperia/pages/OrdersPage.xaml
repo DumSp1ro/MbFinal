@@ -13,25 +13,30 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
-
-        <DataGrid x:Name="dataGrid" Grid.Row="0" AutoGenerateColumns="False">
+        <DataGrid x:Name="dataGrid" Grid.Row="0" AutoGenerateColumns="False" CanUserSortColumns="False" 
+                  CanUserResizeColumns="False" >
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер заказа" Binding="{Binding id}">
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="HorizontalAlignment" Value="Center" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-                <DataGridTextColumn Header="Клиент" Binding="{Binding users.name}" />
-                <DataGridTextColumn Header="Статус" Binding="{Binding status.status_name}" />
-                <DataGridTextColumn Header="Пункт выдачи" Binding="{Binding point.name}" />
-                <DataGridTextColumn Header="Дата заказа" Binding="{Binding order_date, StringFormat=dd.MM.yyyy}" />
-                <DataGridTextColumn Header="Код получения" Binding="{Binding code}" FontWeight="Bold" />
-                <DataGridTextColumn Header="Цена" Binding="{Binding cost}" />
-                <DataGridTextColumn Header="Скидка" Binding="{Binding discount}" />
-                <DataGridTextColumn Header="Кол-во дней для доставки" Binding="{Binding delivery_days}" />
-                <DataGridTemplateColumn Header="Редактирование">
+                <DataGridTextColumn Header="Номер заказа" Binding="{Binding id}" ElementStyle="{StaticResource DataGridTextBlockStyle}"/>
+                <DataGridTextColumn Header="Клиент" Binding="{Binding users.name}" ElementStyle="{StaticResource DataGridTextBlockStyle}"/>
+                <DataGridTemplateColumn Header="Статус">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding status.status_name}" Background="{Binding StatusBackgroundColor}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Пункт выдачи" Binding="{Binding point.name}" ElementStyle="{StaticResource DataGridTextBlockStyle}"/>
+                <DataGridTextColumn Header="Дата заказа" Binding="{Binding order_date, StringFormat=dd.MM.yyyy}" ElementStyle="{StaticResource DataGridTextBlockStyle}"/>
+                <DataGridTextColumn Header="Код получения" Binding="{Binding code}" FontWeight="Bold" ElementStyle="{StaticResource DataGridTextBlockStyle}"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding cost}" ElementStyle="{StaticResource DataGridTextBlockStyle}"/>
+                <DataGridTextColumn Header="Скидка" Binding="{Binding discount}" ElementStyle="{StaticResource DataGridTextBlockStyle}"/>
+                <DataGridTextColumn Header="Срок доставки" Binding="{Binding delivery_days}" ElementStyle="{StaticResource DataGridTextBlockStyle}"/>
+                <DataGridTemplateColumn Header="Редактирование" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Width="120" Content="Редактировать" Click="EditOrder" Style="{StaticResource ButtonAuto}"/>

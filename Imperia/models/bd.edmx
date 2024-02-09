@@ -21,8 +21,8 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="photo" Type="text" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="description" Type="text" Nullable="false" />
-          <Property Name="manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="size" Type="text" Nullable="false" />
+          <Property Name="brend" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="price" Type="int" Nullable="false" />
           <Property Name="discount" Type="int" />
         </EntityType>
@@ -232,19 +232,6 @@
           <Property Name="TypeVxod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="users" Relationship="Self.FK_LoginHistory_users" FromRole="LoginHistory" ToRole="users" />
         </EntityType>
-        <EntityType Name="merch">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="price" Type="Int32" Nullable="false" />
-          <Property Name="discount" Type="Int32" />
-          <NavigationProperty Name="sostav" Relationship="Self.FK_sostav_merch" FromRole="merch" ToRole="sostav" />
-        </EntityType>
         <EntityType Name="orders">
           <Key>
             <PropertyRef Name="id" />
@@ -283,8 +270,8 @@
           <Property Name="quantity" Type="Int32" />
           <Property Name="total_cost" Type="Int32" />
           <Property Name="discount" Type="Int32" />
-          <NavigationProperty Name="merch" Relationship="Self.FK_sostav_merch" FromRole="sostav" ToRole="merch" />
           <NavigationProperty Name="orders" Relationship="Self.FK_sostav_orders" FromRole="sostav" ToRole="orders" />
+          <NavigationProperty Name="merch" Relationship="ImperiaDModel.FK_sostav_merch" FromRole="sostav" ToRole="merch" />
         </EntityType>
         <EntityType Name="status">
           <Key>
@@ -335,18 +322,6 @@
             </Principal>
             <Dependent Role="LoginHistory">
               <PropertyRef Name="id_users" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_sostav_merch">
-          <End Role="merch" Type="Self.merch" Multiplicity="1" />
-          <End Role="sostav" Type="Self.sostav" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="merch">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="sostav">
-              <PropertyRef Name="id_merch" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -412,7 +387,6 @@
         </Association>
         <EntityContainer Name="imp" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="LoginHistory" EntityType="Self.LoginHistory" />
-          <EntitySet Name="merch" EntityType="Self.merch" />
           <EntitySet Name="orders" EntityType="Self.orders" />
           <EntitySet Name="point" EntityType="Self.point" />
           <EntitySet Name="sostav" EntityType="Self.sostav" />
@@ -423,10 +397,6 @@
           <AssociationSet Name="FK_LoginHistory_users" Association="Self.FK_LoginHistory_users">
             <End Role="users" EntitySet="users" />
             <End Role="LoginHistory" EntitySet="LoginHistory" />
-          </AssociationSet>
-          <AssociationSet Name="FK_sostav_merch" Association="Self.FK_sostav_merch">
-            <End Role="merch" EntitySet="merch" />
-            <End Role="sostav" EntitySet="sostav" />
           </AssociationSet>
           <AssociationSet Name="FK_orders_point" Association="Self.FK_orders_point">
             <End Role="point" EntitySet="point" />
@@ -448,7 +418,37 @@
             <End Role="type_user" EntitySet="type_user" />
             <End Role="users" EntitySet="users" />
           </AssociationSet>
+          <EntitySet Name="merch" EntityType="ImperiaDModel.merch" />
+          <AssociationSet Name="FK_sostav_merch" Association="ImperiaDModel.FK_sostav_merch">
+            <End Role="merch" EntitySet="merch" />
+            <End Role="sostav" EntitySet="sostav" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="merch">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="size" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="brend" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="discount" Type="Int32" />
+          <NavigationProperty Name="sostav" Relationship="ImperiaDModel.FK_sostav_merch" FromRole="merch" ToRole="sostav" />
+        </EntityType>
+        <Association Name="FK_sostav_merch">
+          <End Type="ImperiaDModel.merch" Role="merch" Multiplicity="1" />
+          <End Type="ImperiaDModel.sostav" Role="sostav" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="merch">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sostav">
+              <PropertyRef Name="id_merch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -462,19 +462,6 @@
                 <ScalarProperty Name="id_users" ColumnName="id_users" />
                 <ScalarProperty Name="LoginDateTime" ColumnName="LoginDateTime" />
                 <ScalarProperty Name="TypeVxod" ColumnName="TypeVxod" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="merch">
-            <EntityTypeMapping TypeName="ImperiaDModel.merch">
-              <MappingFragment StoreEntitySet="merch">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="photo" ColumnName="photo" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="discount" ColumnName="discount" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -551,6 +538,19 @@
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="photo" ColumnName="photo" />
                 <ScalarProperty Name="id_type" ColumnName="id_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="merch">
+            <EntityTypeMapping TypeName="ImperiaDModel.merch">
+              <MappingFragment StoreEntitySet="merch">
+                <ScalarProperty Name="discount" ColumnName="discount" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="brend" ColumnName="brend" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

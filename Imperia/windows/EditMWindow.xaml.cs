@@ -47,13 +47,13 @@ namespace Imperia.windows
                     return;
                 }
 
-                if (string.IsNullOrWhiteSpace(currentMerch.description))
+                if (string.IsNullOrWhiteSpace(currentMerch.size))
                 {
-                    MessageBox.Show("Укажите описание", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Укажите ", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
-                if (string.IsNullOrWhiteSpace(currentMerch.manufacturer))
+                if (string.IsNullOrWhiteSpace(currentMerch.brend))
                 {
                     MessageBox.Show("Укажите производителя", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;

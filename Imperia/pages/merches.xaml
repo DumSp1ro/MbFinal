@@ -12,78 +12,20 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
 
         <WrapPanel Grid.Row="0" Background="White">
-            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="0">
-                <TextBlock Text="{Binding Path=name}" FontSize="18" Margin="10 0 0 0"/>
-                <TextBlock Text="{Binding type_user.role}" FontSize="16" Margin="10 0 0 0"/>
-            </StackPanel>
             <StackPanel Orientation="Horizontal" Grid.Row="0">
-                <Image Source="{Binding Path=photo}" Width="50" Height="50" Margin="10 0 0 0"/>
+                <Image Source="{Binding Path=photo}" Width="50" Height="50" Margin="5 0 0 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="0">
+                <TextBlock Text="{Binding Path=name}" FontSize="18" Margin="5 0 0 0"/>
+                <TextBlock Text="{Binding type_user.role}" FontSize="16" Margin="5 0 0 0"/>
             </StackPanel>
         </WrapPanel>
-
-        <!--<ListView Name="MerchBD" Grid.Row="1" MouseRightButtonDown="MerchBD_MouseRightButtonDown">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Width="150">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <Image Width="150">
-                                        <Image.Source>
-                                            <Binding Path="photo">
-                                                <Binding.TargetNullValue>
-                                                    <ImageSource>/res/logoid.png</ImageSource>
-                                                </Binding.TargetNullValue>
-                                            </Binding>
-                                        </Image.Source>
-                                    </Image>
-                                </StackPanel>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Width="550">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel VerticalAlignment="Center">
-                                    <TextBlock Text="{Binding name, StringFormat={}Название: {0}}" Style="{StaticResource large}"/>
-                                    <TextBlock Text="{Binding description, StringFormat={}Описание: {0}}" Style="{StaticResource small}"/>
-                                    <TextBlock Text="{Binding manufacturer, StringFormat={}Производитель: {0}}" Style="{StaticResource small}"/>
-                                    <TextBlock Text="{Binding price, StringFormat={}Цена: {0:N2} РУБ}" TextDecorations="{Binding Arrow}" Style="{StaticResource large}"/>
-                                    <TextBlock Text="{Binding newcost, StringFormat={}Цена с учетом скидки: {0:N2}}" Style="{StaticResource large}"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Width="auto">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding discount, StringFormat={}Cкидка: {0:0.##}%}" ></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding TextColor}" Value="True">
-                            <Setter Property="Background" Value="Silver"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </ListView.ItemContainerStyle>
-            <ListView.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="Добавить в корзину" Click="AddToOrder_Click"/>
-                </ContextMenu>
-            </ListView.ContextMenu>
-        </ListView>-->
-
-        <ListView Grid.Row="1" Name="MerchBD" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Center">
+        <ListView Grid.Row="1" Name="MerchBD" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Center">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"></WrapPanel>
@@ -91,14 +33,14 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="20" Width="400">
+                    <Grid Margin="20" Width="390">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="70"/>
-                            <RowDefinition Height="310"/>
+                            <RowDefinition Height="210"/>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
-                        <Image Width="310" Height="310" Grid.Row="1" Stretch="UniformToFill" HorizontalAlignment="Center" Margin="5">
+                        <Image Width="210" Height="210" Grid.Row="1" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <Image.Source>
                                 <Binding Path="photo">
                                     <Binding.TargetNullValue>
@@ -107,12 +49,12 @@
                                 </Binding>
                             </Image.Source>
                         </Image>
-                        <TextBlock Text="{Binding name}" VerticalAlignment="Center" TextAlignment="Center" Width="390"
+                        <TextBlock Text="{Binding name}" VerticalAlignment="Center" TextAlignment="Center" Width="150"
                            TextWrapping="Wrap" HorizontalAlignment="Center" Margin="5 5" FontSize="26" Grid.Row="0"></TextBlock>
                         <TextBlock Text="{Binding price, StringFormat={}Цена: {0:N2} РУБ}" Grid.Row="2" Margin="5 5 5 15" HorizontalAlignment="Center" FontSize="26" FontWeight="Bold"></TextBlock>
                         <StackPanel Orientation="Vertical" Grid.Row="3" >
-                            <TextBlock Text="{Binding dexcription, StringFormat={}Описание: {0}}" FontSize="14" ></TextBlock>
-                            <TextBlock Text="{Binding manufacturer, StringFormat={}Производитель: {0}}"  FontSize="14" ></TextBlock>
+                            <TextBlock Text="{Binding brend, StringFormat={}Бренд: {0}}"  FontSize="14" ></TextBlock>
+                            <TextBlock Text="{Binding size, StringFormat={}Размер: {0}}" FontSize="14" ></TextBlock>
                             <TextBlock Text="{Binding DiscountText}" HorizontalAlignment="Right" FontSize="14" ></TextBlock>
                         </StackPanel>
                     </Grid>
@@ -126,9 +68,28 @@
         </ListView>
         <Button Content="Просмотр заказа" Click="ShowOrderButton_Click" Name="ShowOrderButton" Visibility="Collapsed" Width="150" HorizontalAlignment="Right" Margin="10"
 Grid.Row="2"/>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left">
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button Content="&lt;&lt;&lt;" Click="PreviousPageButton_Click" Height="25" Style="{StaticResource ButtonAuto}"/>
             <Button Content="&gt;&gt;&gt;" Click="NextPageButton_Click" Height="25" Style="{StaticResource ButtonAuto}"/>
+        </StackPanel>
+
+        <Grid Name="NameSort"
+            Grid.Row="2">
+            <TextBox x:Name="SearchTextBox" Width="150" TextChanged="SearchTextBox_TextChanged" Style="{StaticResource tb}" VerticalAlignment="Top" Margin="8"/>
+            <TextBlock IsHitTestVisible="False" FontSize="14" Text="Название" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 16 80 0" Style="{StaticResource SortMerchBlock}"/>
+        </Grid>
+
+        <Grid Name="SortMan"
+              Grid.Row="2">
+            <TextBox x:Name="BrendTextBox" TextChanged="BrendFilter_TextChanged" Style="{StaticResource tb}" Width="150" VerticalAlignment="Bottom" Margin="8"/>
+            <TextBlock IsHitTestVisible="False" FontSize="14" Text="Бренд" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 100 16" Style="{StaticResource BrendMerchBlock}"/>
+        </Grid>
+        
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Visibility="Collapsed">
+            <!--<TextBlock Style="{StaticResource NameTextBlock}">Название</TextBlock>
+            <TextBox x:Name="SearchTextBox"  Width="150" TextChanged="SearchTextBox_TextChanged" Style="{StaticResource tb}"/>-->
+            <!--<TextBlock Foreground="White" >Бренд</TextBlock>
+            <TextBox x:Name="ManFilterTextBox" TextChanged="ManufacturerFilterTextBox_TextChanged" Style="{StaticResource tb}"/>-->
         </StackPanel>
     </Grid>
 </Page>

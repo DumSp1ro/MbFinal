@@ -22,7 +22,7 @@ namespace Imperia.models
         public Nullable<int> total_cost { get; set; }
         public Nullable<int> discount { get; set; }
     
-        public virtual merch merch { get; set; }
         public virtual orders orders { get; set; }
+        public virtual merch merch { get; set; }
     }
 }

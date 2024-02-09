@@ -34,13 +34,13 @@
             </Grid>
 
             <Grid x:Name="DesGrid">
-                <TextBox x:Name="DesMerch" Grid.Row="2" Style="{StaticResource tb}" Margin="25,50,25,0" VerticalAlignment="Top" Text="{Binding description}"></TextBox>
-                <TextBlock IsHitTestVisible="False" FontSize="14" Text="Описание" Margin="37,58,225,0" VerticalAlignment="Top" Style="{StaticResource DesMerchBlock}"/>
+                <TextBox x:Name="DesMerch" Grid.Row="2" Style="{StaticResource tb}" Margin="25,50,25,0" VerticalAlignment="Top" Text="{Binding size}"></TextBox>
+                <TextBlock IsHitTestVisible="False" FontSize="14" Text="Размер" Margin="37,58,225,0" VerticalAlignment="Top" Style="{StaticResource DesMerchBlock}"/>
             </Grid>
 
             <Grid x:Name="ManufGrid">
-                <TextBox x:Name="ManufMerch" Grid.Row="2" Style="{StaticResource tb}" Margin="25,90,25,0" VerticalAlignment="Top" Text="{Binding manufacturer}"></TextBox>
-                <TextBlock IsHitTestVisible="False" FontSize="14" Text="Производитель" Margin="37,98,188,0" VerticalAlignment="Top" Style="{StaticResource ManufMerchBlock}"/>
+                <TextBox x:Name="ManufMerch" Grid.Row="2" Style="{StaticResource tb}" Margin="25,90,25,0" VerticalAlignment="Top" Text="{Binding brend}"></TextBox>
+                <TextBlock IsHitTestVisible="False" FontSize="14" Text="Бренд" Margin="37,98,188,0" VerticalAlignment="Top" Style="{StaticResource ManufMerchBlock}"/>
             </Grid>
 
             <Grid x:Name="PriceGrid">
